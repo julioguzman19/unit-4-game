@@ -4,8 +4,12 @@ let secondNumber = null;
 let thirdNumber = null;
 let fourthNumber = null;
 let currentNumber =0;
+let numberToReachTo = 0;
 
 $(document).ready(function() {
+
+
+    numberToReachToGenerator()
 
     firstImageNumberGenerator()
 
@@ -15,7 +19,14 @@ $(document).ready(function() {
 
     fourthImageNumberGenerator()
 
+
 })
+
+function numberToReachToGenerator(){
+  //will get a  max number of 120 and at least 19
+  numberToReachTo = Math.floor(Math.random() * Math.floor(101)+19);
+  $("#numberToReach").html(numberToReachTo);
+}
 
 function firstImageNumberGenerator(){
   //Image1 Number
@@ -26,7 +37,7 @@ function firstImageNumberGenerator(){
     }
 
     currentNumber = parseInt(currentNumber) +parseInt(firstNumber);
-    $("#test").html(currentNumber); 
+    $("#currentNumber").html(currentNumber); 
   });
 }
 
@@ -39,7 +50,7 @@ function secondImageNumberGenerator(){
     }
     
     currentNumber = parseInt(currentNumber) +parseInt(secondNumber);
-     $("#test").html(currentNumber); 
+     $("#currentNumber").html(currentNumber); 
   });
 }
 
@@ -52,7 +63,7 @@ function thirdImageNumberGenerator(){
     }
 
     currentNumber = parseInt(currentNumber) +parseInt(thirdNumber);
-    $("#test").html(currentNumber);  
+    $("#currentNumber").html(currentNumber);  
   });
 }
 
@@ -65,9 +76,10 @@ function fourthImageNumberGenerator(){
       }
 
       currentNumber = parseInt(currentNumber) +parseInt(fourthNumber);
-      $("#test").html(currentNumber); 
+      $("#currentNumber").html(currentNumber); 
     });
 }
+
 
 
 
