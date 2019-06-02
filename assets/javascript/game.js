@@ -1,4 +1,3 @@
-
 let firstNumber = null;
 let secondNumber = null;
 let thirdNumber = null;
@@ -148,10 +147,12 @@ function fourthImageNumberGenerator(){
 //WIN and LOSE will be included in each ImageNumberGenerating function
 function win(){
   wins= wins +1;
+  $("#totalWins").html(wins); 
 }
 
 function lose(){
     losses = losses+ 1;
+    $("#totalLosses").html(losses); 
 }
 
 //resetting game function will be inserted in win and lose functions
