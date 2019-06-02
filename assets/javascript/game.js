@@ -9,17 +9,15 @@ let losses=0;
 
 $(document).ready(function() {
 
-      numbersGenerator();
+    numbersGenerator();
 
-      firstImageNumberGenerator();
+    firstImageNumberGenerator();
 
-      secondImageNumberGenerator();
+    secondImageNumberGenerator();
     
-      thirdImageNumberGenerator();
+    thirdImageNumberGenerator();
 
-      fourthImageNumberGenerator();
-
-      console.log("in main function");
+    fourthImageNumberGenerator();
 
     if(currentNumber === numberToReachTo){
       wins();
