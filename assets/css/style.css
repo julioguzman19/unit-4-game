@@ -1,9 +1,12 @@
 body{
     background:url(/unit-4-game/assets/images/diamondBackground.jpg);
+    background-size: contain;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
 
 .container{
-    background-color: rgb(164, 164, 165);
+    background-color:rgb(184, 221, 236);
     margin:auto;
     margin-top:2%;
     margin-bottom:2%;
