@@ -9,23 +9,23 @@ let numberToReachTo = 0;
 $(document).ready(function() {
 
 
-    numberToReachToGenerator()
+    numberToReachToGenerator();
 
-    firstImageNumberGenerator()
+    firstImageNumberGenerator();
 
-    secondImageNumberGenerator()
+    secondImageNumberGenerator();
   
-    thirdImageNumberGenerator()
+    thirdImageNumberGenerator();
 
-    fourthImageNumberGenerator()
-
-
+    fourthImageNumberGenerator();
+    
 })
 
 function numberToReachToGenerator(){
   //will get a  max number of 120 and at least 19
   numberToReachTo = Math.floor(Math.random() * Math.floor(101)+19);
   $("#numberToReach").html(numberToReachTo);
+ 
 }
 
 function firstImageNumberGenerator(){
@@ -38,6 +38,9 @@ function firstImageNumberGenerator(){
 
     currentNumber = parseInt(currentNumber) +parseInt(firstNumber);
     $("#currentNumber").html(currentNumber); 
+
+    win();
+    lose();
   });
 }
 
@@ -51,6 +54,9 @@ function secondImageNumberGenerator(){
     
     currentNumber = parseInt(currentNumber) +parseInt(secondNumber);
      $("#currentNumber").html(currentNumber); 
+
+     win();
+     lose();
   });
 }
 
@@ -64,6 +70,9 @@ function thirdImageNumberGenerator(){
 
     currentNumber = parseInt(currentNumber) +parseInt(thirdNumber);
     $("#currentNumber").html(currentNumber);  
+    
+    win();
+    lose();
   });
 }
 
@@ -77,8 +86,27 @@ function fourthImageNumberGenerator(){
 
       currentNumber = parseInt(currentNumber) +parseInt(fourthNumber);
       $("#currentNumber").html(currentNumber); 
+
+      win();
+      lose();
     });
 }
+
+//WIN and LOSE will be included in each ImageNumberGenerating function
+function win(){
+
+  if(currentNumber === numberToReachTo){
+    console.log("you won");
+  }
+}
+
+function lose(){
+
+  if(currentNumber > numberToReachTo){
+    console.log("you lost");
+  }
+}
+
 
 
 
