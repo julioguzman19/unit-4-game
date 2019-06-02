@@ -3,6 +3,7 @@ let firstNumber = null;
 let secondNumber = null;
 let thirdNumber = null;
 let fourthNumber = null;
+let currentNumber =0;
 
 $(document).ready(function() {
 
@@ -14,8 +15,6 @@ $(document).ready(function() {
 
     fourthImageNumberGenerator()
 
-   /*  yourCurrentNumber() */
-
 })
 
 function firstImageNumberGenerator(){
@@ -23,10 +22,11 @@ function firstImageNumberGenerator(){
   $("#image1Number").on('click',function(){
 
     if(firstNumber === null){
-      firstNumber=Math.floor(Math.random() * Math.floor(12));
+      firstNumber=Math.floor(Math.random() * Math.floor(11)+1);
     }
 
-    $("#test").html(firstNumber); 
+    currentNumber = parseInt(currentNumber) +parseInt(firstNumber);
+    $("#test").html(currentNumber); 
   });
 }
 
@@ -35,10 +35,11 @@ function secondImageNumberGenerator(){
   $("#image2Number").on('click',function(){
 
     if(secondNumber === null){
-      secondNumber=Math.floor(Math.random() * Math.floor(12));
+      secondNumber=Math.floor(Math.random() * Math.floor(11)+1);
     }
     
-    $("#test").html(secondNumber); 
+    currentNumber = parseInt(currentNumber) +parseInt(secondNumber);
+     $("#test").html(currentNumber); 
   });
 }
 
@@ -47,10 +48,11 @@ function thirdImageNumberGenerator(){
    $("#image3Number").on('click',function(){
 
     if(thirdNumber === null){
-      thirdNumber=Math.floor(Math.random() * Math.floor(12));
+      thirdNumber=Math.floor(Math.random() * Math.floor(11)+1);
     }
 
-    $("#test").html(thirdNumber); 
+    currentNumber = parseInt(currentNumber) +parseInt(thirdNumber);
+    $("#test").html(currentNumber);  
   });
 }
 
@@ -59,17 +61,15 @@ function fourthImageNumberGenerator(){
     $("#image4Number").on('click',function(){
 
       if(fourthNumber === null){
-        fourthNumber=Math.floor(Math.random() * Math.floor(12));
+        fourthNumber=Math.floor(Math.random() * Math.floor(11)+1);
       }
- 
-      $("#test").html(fourthNumber); 
+
+      currentNumber = parseInt(currentNumber) +parseInt(fourthNumber);
+      $("#test").html(currentNumber); 
     });
 }
 
-/* function yourCurrentNumber(){
-  let currentNewNumber = currentNewNumber;
-  console.log(currentNewnNumber);
-} */
+
 
 
 
