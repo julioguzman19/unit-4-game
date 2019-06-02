@@ -5,6 +5,8 @@ let thirdNumber = null;
 let fourthNumber = null;
 let currentNumber =0;
 let numberToReachTo = 0;
+let wins=0;
+let losses=0;
 
 $(document).ready(function() {
 
@@ -97,6 +99,8 @@ function win(){
 
   if(currentNumber === numberToReachTo){
     console.log("you won");
+    wins++;
+    reset();
   }
 }
 
@@ -104,7 +108,27 @@ function lose(){
 
   if(currentNumber > numberToReachTo){
     console.log("you lost");
+    losses++;
+    reset();
+    return;
   }
+}
+
+//resetting game function will be inserted in win and lose functions
+function reset(){
+  let firstNumber = null;
+  let secondNumber = null;
+  let thirdNumber = null;
+  let fourthNumber = null;
+  let currentNumber =null;
+  let numberToReachTo = null;
+  let wins=0;
+  let losses=0;
+  $("#currentNumber").html(currentNumber);
+  $("#numberToReach").html(numberToReachTo);
+  console.log(currentNumber);
+  console.log(numberToReachTo);
+  console.log(losses);
 }
 
 
