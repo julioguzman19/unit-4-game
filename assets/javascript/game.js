@@ -10,17 +10,25 @@ let losses=0;
 
 $(document).ready(function() {
 
+      numberToReachToGenerator();
 
-    numberToReachToGenerator();
+      firstImageNumberGenerator();
 
-    firstImageNumberGenerator();
-
-    secondImageNumberGenerator();
-  
-    thirdImageNumberGenerator();
-
-    fourthImageNumberGenerator();
+      secondImageNumberGenerator();
     
+      thirdImageNumberGenerator();
+
+      fourthImageNumberGenerator();
+
+      console.log("in main function");
+
+    if(currentNumber === numberToReachTo){
+      wins();
+    }
+
+    if(currentNumber > numberToReachTo){
+      lose();
+    }
 })
 
 function numberToReachToGenerator(){
@@ -38,11 +46,22 @@ function firstImageNumberGenerator(){
       firstNumber=Math.floor(Math.random() * Math.floor(11)+1);
     }
 
+    if (numberToReachTo > currentNumber ){
     currentNumber = parseInt(currentNumber) +parseInt(firstNumber);
-    $("#currentNumber").html(currentNumber); 
+    $("#currentNumber").html(currentNumber);
+    }
 
-    win();
-    lose();
+    if(numberToReachTo < currentNumber){
+      lose();
+      reset();
+    }
+
+    if(currentNumber === numberToReachTo){
+      win();
+      reset();
+    }
+
+    console.log(numberToReachTo,currentNumber);
   });
 }
 
@@ -57,8 +76,6 @@ function secondImageNumberGenerator(){
     currentNumber = parseInt(currentNumber) +parseInt(secondNumber);
      $("#currentNumber").html(currentNumber); 
 
-     win();
-     lose();
   });
 }
 
@@ -73,8 +90,6 @@ function thirdImageNumberGenerator(){
     currentNumber = parseInt(currentNumber) +parseInt(thirdNumber);
     $("#currentNumber").html(currentNumber);  
     
-    win();
-    lose();
   });
 }
 
@@ -89,46 +104,35 @@ function fourthImageNumberGenerator(){
       currentNumber = parseInt(currentNumber) +parseInt(fourthNumber);
       $("#currentNumber").html(currentNumber); 
 
-      win();
-      lose();
     });
+ 
+
 }
 
 //WIN and LOSE will be included in each ImageNumberGenerating function
 function win(){
-
-  if(currentNumber === numberToReachTo){
-    console.log("you won");
-    wins++;
-    reset();
-  }
+wins= wins +1;
 }
 
 function lose(){
-
-  if(currentNumber > numberToReachTo){
-    console.log("you lost");
-    losses++;
-    reset();
-    return;
-  }
+    losses = losses+ 1;
+    console.log("lose function");
+    console.log(currentNumber);
+    console.log(numberToReachTo);
+    console.log(losses);
 }
 
 //resetting game function will be inserted in win and lose functions
 function reset(){
-  let firstNumber = null;
-  let secondNumber = null;
-  let thirdNumber = null;
-  let fourthNumber = null;
-  let currentNumber =null;
-  let numberToReachTo = null;
-  let wins=0;
-  let losses=0;
-  $("#currentNumber").html(currentNumber);
-  $("#numberToReach").html(numberToReachTo);
-  console.log(currentNumber);
-  console.log(numberToReachTo);
-  console.log(losses);
+  firstNumber = null;
+  secondNumber = null;
+  thirdNumber = null;
+  fourthNumber = null;
+  currentNumber = 0;
+  numberToReachTo = 0;
+  numberToReachToGenerator();
+  console.log("reset function");
+
 }
 
 
