@@ -7,11 +7,13 @@ let numberToReachTo = 0;
 let wins=0;
 let losses=0;
 
+/*Calling functions*/
 $(document).ready(function() {
 
-    numbersGenerator();
-
-    firstImageNumberGenerator();
+    //populate numberToReachTo random number and currentNumber zero to screen
+    numbersGenerator(); 
+    //assigning random number 1-12 to 4 images
+    firstImageNumberGenerator(); 
 
     secondImageNumberGenerator();
     
@@ -19,15 +21,19 @@ $(document).ready(function() {
 
     fourthImageNumberGenerator();
 
+    //if your current number equals your number you are trying to reach. win function runs
     if(currentNumber === numberToReachTo){
       wins();
     }
-
+    //if your current number equals your number you are trying to reach. lose function runs
     if(currentNumber > numberToReachTo){
       lose();
     }
 })
 
+/*FUNCTIONS*/
+
+//
 function numbersGenerator(){
   //will get a  max number of 120 and at least 19
   numberToReachTo = Math.floor(Math.random() * Math.floor(101)+19);
@@ -138,11 +144,8 @@ function fourthImageNumberGenerator(){
       }
 
     });
- 
-
 }
 
-//WIN and LOSE will be included in each ImageNumberGenerating function
 function win(){
   wins= wins +1;
   $("#totalWins").html(wins); 
